@@ -10,7 +10,6 @@ import { RotatingGallery } from "@/components/main/RotatingGallery";
 import { SectionHeader } from "@/components/main/SectionHeader";
 import { AnnouncementBar } from "@/components/main/AnnouncementBar";
 import { HomeCampDates } from "@/components/main/HomeCampDates";
-import { HomeNewsletterStrip } from "@/components/main/HomeNewsletterStrip";
 import { RevealOnScroll } from "@/components/main/RevealOnScroll";
 import { Marquee } from "@/components/main/Marquee";
 import {
@@ -75,7 +74,7 @@ export default async function HomePage() {
         links={bigNews.links}
       />
 
-      <HomeCampDates dates={campDates} registrationIsOpen={registrationIsOpen} />
+      <HomeCampDates dates={campDates} />
 
       {/* THREE PILLARS — image-led with hover flourishes */}
       <section className="relative border-t border-line bg-paper">
@@ -352,8 +351,6 @@ export default async function HomePage() {
           </RevealOnScroll>
         </div>
       </section>
-
-      <HomeNewsletterStrip />
 
       {/* SUPPORT — centered hero, image strip below */}
       <section className="relative overflow-hidden border-t border-line bg-paper-deep/50">

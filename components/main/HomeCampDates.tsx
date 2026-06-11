@@ -4,45 +4,30 @@ import type { HomeCampDate } from "@/lib/content/home-camp";
 
 type HomeCampDatesProps = {
   dates: HomeCampDate[];
-  registrationIsOpen: boolean;
 };
 
-export function HomeCampDates({ dates, registrationIsOpen }: HomeCampDatesProps) {
+export function HomeCampDates({ dates }: HomeCampDatesProps) {
   if (dates.length === 0) return null;
 
   return (
     <section className="border-b border-line bg-paper">
-      <div className="mx-auto max-w-[1440px] px-4 py-8 sm:px-6 md:px-10 md:py-10">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brass">
-              <Flame size={14} weight="fill" className="text-ember" />
-              Summer 2026
-            </div>
-            <h2 className="font-display mt-2 text-3xl tracking-tight text-ink md:text-4xl">
-              Camp dates
-            </h2>
-          </div>
-
-          <Link
-            href="/camp"
-            className="group inline-flex items-center gap-2 self-start rounded-full border border-ink/20 px-5 py-2.5 text-sm font-medium text-ink transition hover:border-ink hover:bg-paper-deep md:self-auto"
-          >
-            {registrationIsOpen ? "Register at camp site" : "Camp preview"}
-            <ArrowUpRight
-              size={14}
-              weight="bold"
-              className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            />
-          </Link>
+      <div className="mx-auto max-w-[1440px] px-4 py-8 text-center sm:px-6 md:px-10 md:py-10">
+        <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brass">
+          <Flame size={14} weight="fill" className="text-ember" />
+          Summer 2026
         </div>
+        <h2 className="font-display mt-2 text-3xl tracking-tight text-ink md:text-4xl">Camp dates</h2>
 
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul
+          className={`mx-auto mt-6 grid max-w-3xl gap-4 ${
+            dates.length === 1 ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2"
+          }`}
+        >
           {dates.map((row) => (
             <li key={row.title}>
               <Link
                 href={row.href}
-                className="group flex h-full flex-col border border-line bg-paper-deep/40 p-5 transition hover:border-pine hover:bg-paper-deep/70"
+                className="group flex h-full flex-col border border-line bg-paper-deep/40 p-5 text-left transition hover:border-pine hover:bg-paper-deep/70"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="font-display text-2xl tracking-tight text-ink group-hover:text-pine">
